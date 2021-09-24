@@ -1,0 +1,73 @@
+﻿<Window x:Class="PieceWork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PieceWork"
+        mc:Ignorable="d"
+        Title="Incorporeal Incorporated Hourly Payroll" Height="310" Width="440">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 0 Control -->
+        <Label Content="Worker _Name: " HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+        <TextBox x:Name="textBoxWorkerName" Grid.Column="1" HorizontalAlignment="Left"  Text="" VerticalAlignment="Center" Width="200"/>
+
+        <!-- Row 1 Control -->
+        <Label Content="Messages _Sent: " Grid.Row="1" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+        <TextBox x:Name="textBoxMessagesSent" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" Text="" VerticalAlignment="Center" Width="200"/>
+
+        <!-- Row 2 Control -->
+        <Label Content="Total Pay: " Grid.Row="2" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" Text="" VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+
+        <!-- Row 3 Control -->
+        <Button Content=" _Calculate Pay " HorizontalAlignment="Right" Margin="5" Grid.Row="3" VerticalAlignment="Top"/>
+        <Button Content="  C_lear Fields  " Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="3" VerticalAlignment="Top"/>
+
+        <!-- Row 5 Control -->
+        <GroupBox Header="Summary Values" Grid.Row="4" Grid.ColumnSpan="2">
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!-- Row 0 Control -->
+            <Label Content="Total Workers:  " HorizontalAlignment="Right"  VerticalAlignment="Center" />
+            <TextBox x:Name="textBoxTotalWorkers"  Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+
+            <!-- Row 1 Control -->
+            <Label Content="Total Pay:  " Grid.Row="1"  HorizontalAlignment="Right"  VerticalAlignment="Center" />
+            <TextBox x:Name="textBoxTotalPay" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+
+            <!-- Row 2 Control -->
+            <Label Content="Average Pay:   " HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="2"/>
+            <TextBox x:Name="textBoxTAveragePay"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+
+
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>
