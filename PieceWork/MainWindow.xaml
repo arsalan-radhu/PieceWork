@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PieceWork"
         mc:Ignorable="d"
-        Title="Incorporeal Incorporated Hourly Payroll" Height="310" Width="440">
+        Title="Incorporeal Incorporated" Height="310" Width="440" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -21,22 +21,22 @@
         </Grid.RowDefinitions>
 
         <!-- Row 0 Control -->
-        <Label Content="Worker _Name: " HorizontalAlignment="Right"  VerticalAlignment="Center"/>
-        <TextBox x:Name="textBoxWorkerName" Grid.Column="1" HorizontalAlignment="Left"  Text="" VerticalAlignment="Center" Width="200"/>
+        <Label Content="Worker _Name: " HorizontalAlignment="Right"  VerticalAlignment="Center" Target="{Binding ElementName= textBoxWorkerName}"/>
+        <TextBox x:Name="textBoxWorkerName" Grid.Column="1" HorizontalAlignment="Left"  Text="" VerticalAlignment="Center" Width="200" ToolTip="Enter the worker's name here."/>
 
         <!-- Row 1 Control -->
-        <Label Content="Messages _Sent: " Grid.Row="1" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
-        <TextBox x:Name="textBoxMessagesSent" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" Text="" VerticalAlignment="Center" Width="200"/>
+        <Label Content="Messages _Sent: " Grid.Row="1" HorizontalAlignment="Right"  VerticalAlignment="Center" Target="{Binding ElementName=textBoxMessagesSent}"/>
+        <TextBox x:Name="textBoxMessagesSent" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" Text="" VerticalAlignment="Center" Width="200" ToolTip="Enter the number of messages sent by the worker here."/>
 
         <!-- Row 2 Control -->
         <Label Content="Total Pay: " Grid.Row="2" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" Text="" VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+        <TextBox x:Name="textBoxSinglePay" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" Text="" VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total pay owed to the individual worker."/>
 
         <!-- Row 3 Control -->
-        <Button Content=" _Calculate Pay " HorizontalAlignment="Right" Margin="5" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button Content="  C_lear Fields  " Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="3" VerticalAlignment="Top"/>
+        <Button x:Name="buttonCalculate" Content=" _Calculate Pay " HorizontalAlignment="Right" Margin="5" Grid.Row="3" VerticalAlignment="Top" Click="CalculateClick" ToolTip="Click to calculate the worker's pay."/>
+        <Button x:Name="buttonClear" Content="  C_lear Fields  " Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="3" VerticalAlignment="Top" Click="ClearClick" ToolTip="Click to clear all the input data."/>
 
-        <!-- Row 5 Control -->
+        <!-- Row 4 Control -->
         <GroupBox Header="Summary Values" Grid.Row="4" Grid.ColumnSpan="2">
 
         <Grid>
@@ -54,15 +54,15 @@
 
             <!-- Row 0 Control -->
             <Label Content="Total Workers:  " HorizontalAlignment="Right"  VerticalAlignment="Center" />
-            <TextBox x:Name="textBoxTotalWorkers"  Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxTotalWorkers"  Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total number of workers that have been input."/>
 
             <!-- Row 1 Control -->
             <Label Content="Total Pay:  " Grid.Row="1"  HorizontalAlignment="Right"  VerticalAlignment="Center" />
-            <TextBox x:Name="textBoxTotalPay" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+                <TextBox x:Name="textBoxTotalPay" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total pay owed to all the enteries."/>
 
             <!-- Row 2 Control -->
             <Label Content="Average Pay:   " HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="2"/>
-            <TextBox x:Name="textBoxTAveragePay"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxAveragePay"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the average pay between the total entered workers."/>
 
 
             </Grid>
