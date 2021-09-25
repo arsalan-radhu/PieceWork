@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="IncIncLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="IncIncLogo.png" />
+  </ItemGroup>
+
 </Project>
