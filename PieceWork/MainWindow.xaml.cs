@@ -71,5 +71,10 @@ namespace PieceWork
             textBoxWorkerName.Focus();
 
         }
+
+        private void ExitClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
