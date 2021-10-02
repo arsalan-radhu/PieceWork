@@ -159,6 +159,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 if (string.IsNullOrEmpty(value))
                 {
                     MessageBox.Show("Please Enter a name!", "Invalid Input ");
+                    isValid = false;
                 }
                 else
                 {
