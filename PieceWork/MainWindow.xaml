@@ -42,7 +42,7 @@
             <Button x:Name="buttonCalculate" Content=" _Calculate Pay " HorizontalAlignment="Center" VerticalAlignment="Center" Click="CalculateClick" ToolTip="Click to calculate the worker's pay." Width="100" Height="23" Grid.Column="1"/>
             <Button x:Name="buttonClear" Content="  C_lear Fields  " HorizontalAlignment="Center"  VerticalAlignment="Center" Click="ClearClick" ToolTip="Click to clear all the input data."   Width="100" Height="23"/>
         </Grid>
-        <Button x:Name="buttonExit" Content="   _Exit   " Grid.Column="1" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="ExitClick" Height="23" Width="100" />
+        <Button x:Name="buttonExit" Content="   _Exit   " Grid.Column="1" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="ExitClick" Height="23" Width="100" ToolTip="Click to exit application." />
         <!-- Row 4 Control -->
         <GroupBox Header="Summary Values" Grid.Row="4" Grid.ColumnSpan="2">
 
