@@ -62,7 +62,7 @@ namespace PieceWork
             textBoxTotalPay.Clear();
             textBoxAveragePay.Clear();
 
-            //Renable any controls that may be disabled
+            //Reenable any controls that may be disabled
             textBoxWorkerName.IsReadOnly = false;
             textBoxMessagesSent.IsReadOnly = false;
             buttonCalculate.IsEnabled = true;
