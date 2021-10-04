@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Name: Arsalan Arif Radhu
+ * Student ID: 100813965
+ * Date: 4 October 2021
+ * Description: Summary form which will display all the summary which was preciously shown on the main form.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +28,11 @@ namespace PieceWork
         public SummaryForm()
         {
             InitializeComponent();
+        }
+        
+        private void ClickCloseForm(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

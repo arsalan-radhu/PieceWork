@@ -6,8 +6,6 @@ using System;
 using System.Windows;
 
 
-
-
 namespace PieceWork
 {
     /// <summary>
@@ -15,6 +13,8 @@ namespace PieceWork
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string workerName = String.Empty;
+        public static string messagesSent = String.Empty;
         public MainWindow()
         {
             InitializeComponent();
@@ -25,22 +25,28 @@ namespace PieceWork
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CalculateClick(object sender, RoutedEventArgs e)
+         void CalculateClick(object sender, RoutedEventArgs e)
         {
             //Attempt to make a new worker
             PieceworkWorker worker = new PieceworkWorker(textBoxWorkerName.Text, textBoxMessagesSent.Text);
-
+            workerName = textBoxWorkerName.Text;
+            messagesSent = textBoxMessagesSent.Text;
             // Display worker's pay
             textBoxSinglePay.Text = worker.Pay.ToString();
-            //Display he summary values
+            //Display the summary values
             textBoxTotalPay.Text = worker.TotalPay.ToString();
             textBoxAveragePay.Text = worker.AveragePay.ToString();
             textBoxTotalWorkers.Text = worker.TotalWorkers.ToString(); 
+            
 
             // Disable input related fields
             textBoxWorkerName.IsReadOnly = true;
             textBoxMessagesSent.IsReadOnly = true;
             buttonCalculate.IsEnabled = false;
+
+            //Open the summary form
+            SummaryForm summary = new SummaryForm();
+            summary.Show();
 
             //If the worker is not created successfully, show error.
         }

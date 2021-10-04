@@ -23,7 +23,7 @@ using System.Windows.Controls;
 
 namespace PieceWork // Ensure this namespace matches your own
 {
-    class PieceworkWorker
+    public class PieceworkWorker
     {
 
         #region "Variable declarations"
