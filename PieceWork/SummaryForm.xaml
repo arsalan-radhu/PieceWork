@@ -8,7 +8,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:local="clr-namespace:PieceWork"
             mc:Ignorable="d"
-            Title="SummaryForm" Height="180" Width="460" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+            Title="SummaryForm" Height="180" Width="460" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/IncIncLogo.png">
     <Grid>
         <GroupBox>
 
@@ -29,22 +29,22 @@
 
                 <!-- Row 0 Control -->
                 <Label Content="Total Workers:  " HorizontalAlignment="Right"  VerticalAlignment="Center" />
-                <TextBox x:Name="textBoxTotalWorkers2"  Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total number of workers that have been input."/>
+                <TextBox x:Name="textBoxTotalWorkers"  Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total number of workers that have been input."/>
 
                 <!-- Row 1 Control -->
                 <Label Content="Total Messages:   " HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="1"/>
-                <TextBox x:Name="textBoxTotalMessages2"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total number of messages sent ny the workers."/>
+                <TextBox x:Name="textBoxTotalMessages"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total number of messages sent ny the workers."/>
 
                 <!-- Row 2 Control -->
                 <Label Content="Total Pay:  " Grid.Row="2"  HorizontalAlignment="Right"  VerticalAlignment="Center" />
-                <TextBox x:Name="textBoxTotalPay2" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total pay owed to all the enteries."/>
+                <TextBox x:Name="textBoxTotalPay" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the total pay owed to all the entries."/>
 
                 <!-- Row 3 Control -->
                 <Label Content="Average Pay:   " HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="3"/>
-                <TextBox x:Name="textBoxAveragePay2"  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the average pay between the total entered workers."/>
+                <TextBox x:Name="textBoxAveragePay"  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the average pay between the total entered workers."/>
 
                 <!-- Row 4 Control -->
-                <Button Content="  Close Summary  " HorizontalAlignment="Left" Margin="174,0,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" Click="ClickCloseForm"/>
+                <Button Content="  Close Summary  " HorizontalAlignment="Left" Margin="174,0,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" Click="ClickCloseForm" IsCancel="True"/>
 
             </Grid>
 

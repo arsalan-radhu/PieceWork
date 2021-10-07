@@ -13,17 +13,13 @@
 // This is currently incomplete; note the four comment blocks
 // below that begin with "TO DO"
 
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+
 
 namespace PieceWork // Ensure this namespace matches your own
 {
-    public class PieceworkWorker
+    class PieceworkWorker
     {
 
         #region "Variable declarations"
@@ -33,15 +29,13 @@ namespace PieceWork // Ensure this namespace matches your own
         private int employeeMessages;
         private decimal employeePay;
 
-        private bool isValid = true;
-
         // Shared class variables
         private static int overallNumberOfEmployees;
         private static int overallMessages;
         private static decimal overallPayroll;
 
         //CONSTANTS
-        private const int ZERO = 0;
+        private const int zero = 0;
         private const int firstThreshold = 1250;
         private const int secondThreshold = 2500;
         private const int thirdThreshold = 3750;
@@ -52,6 +46,11 @@ namespace PieceWork // Ensure this namespace matches your own
         private const decimal thirdThresholdPay = 0.028M;
         private const decimal fourthThresholdPay = 0.034M;
         private const decimal lastThresholdPay = 0.04M;
+
+        // Constants for exception parameter name
+        public const string NameParameters = "name";
+        public const string MessagesParameters = "messages";
+        
 
         #endregion
 
@@ -95,46 +94,34 @@ namespace PieceWork // Ensure this namespace matches your own
         /// </summary>
         private void FindPay()
         {
-            // TO DO
-            // Fill in this entire method by following the instructions provided
-            // in the NETD 3202 Lab 1 handout
-            // It is suggested that you use the requirements as a checklist in
-            // order to ensure you don't miss any requirements.
 
-            // Check if worker is considered valid.
-            if (isValid)
-            {
-                // If the worker is valid, check which range they are in 
-                if (employeeMessages < firstThreshold && employeeMessages > ZERO)
-                {
-                    employeePay = (decimal) (employeeMessages * firstThresholdPay);
-                }
-                else if (employeeMessages < secondThreshold && employeeMessages >= firstThreshold)
-                {
-                    employeePay = (decimal)(employeeMessages * secondThresholdPay);
-                }
-                else if (employeeMessages < thirdThreshold && employeeMessages >= secondThreshold)
-                {
-                    employeePay = (decimal)(employeeMessages * thirdThresholdPay);
-                }
-                else if (employeeMessages < lastThreshold && employeeMessages >= thirdThreshold)
-                {
-                    employeePay = (decimal)(employeeMessages * fourthThresholdPay);
-                }
-                else if(employeeMessages >= lastThreshold)
-                {
-                    employeePay = (decimal)(employeeMessages * lastThresholdPay);
-                }
+            if (employeeMessages < firstThreshold && employeeMessages > zero)
+            { 
+                employeePay = (decimal) (employeeMessages * firstThresholdPay);
+            }
+            else if (employeeMessages < secondThreshold && employeeMessages >= firstThreshold) 
+            { 
+                employeePay = (decimal)(employeeMessages * secondThresholdPay);
+            }
+            else if (employeeMessages < thirdThreshold && employeeMessages >= secondThreshold)
+            { 
+                employeePay = (decimal)(employeeMessages * thirdThresholdPay);
+            }
+            else if (employeeMessages < lastThreshold && employeeMessages >= thirdThreshold)
+            { 
+                employeePay = (decimal)(employeeMessages * fourthThresholdPay);
+            }
+            else if(employeeMessages >= lastThreshold)
+            { 
+                employeePay = (decimal)(employeeMessages * lastThresholdPay);
+            }
 
-                // Update all summary variables
-                overallNumberOfEmployees++;
-                overallMessages += employeeMessages;
-                overallPayroll += employeePay;
-            }
-            else
-            {
-                MessageBox.Show("INVALID ENTRY!!");
-            }
+            // Update all summary variables
+            overallNumberOfEmployees++;
+            overallMessages += employeeMessages;
+            overallPayroll += employeePay;
+            
+       
         }
 
         #endregion
@@ -153,13 +140,10 @@ namespace PieceWork // Ensure this namespace matches your own
             }
             set
             {
-                // TO DO
-                // Add validation for the worker's name based on the requirements
-                // document
+                // Add validation for the worker's name based on the requirement.
                 if (string.IsNullOrEmpty(value))
                 {
-                    MessageBox.Show("Please Enter a name!", "Invalid Input ");
-                    isValid = false;
+                    throw new ArgumentNullException(NameParameters, "Then entered name cannot be blank.");
                 }
                 else
                 {
@@ -189,18 +173,20 @@ namespace PieceWork // Ensure this namespace matches your own
                 if (int.TryParse(value, out employeeMessages))
                 {
                     // If number entered is whole number, check if it is in a valid range
-                    if (employeeMessages < ZERO)
+                    if (employeeMessages < zero)
                     {
                         // If not in valid range, report error
-                        isValid = false;
-                        MessageBox.Show("The number of messages should be greater than ZERO!","Invalid Entry!");
+                        throw new ArgumentOutOfRangeException(MessagesParameters,
+                            "Messages should be greater than ZERO!");
+
                     }
                 }
                 else
                 {
                     //If not a numeric value, report an error
-                    isValid = false;
-                    MessageBox.Show("The number of message entered should be a WHOLE number!" , "Invalid Entry!");
+                    ArgumentException error =
+                        new ArgumentException("Message entered should be a WHOLE number!",MessagesParameters);
+                    throw error;
                 }
 
 
@@ -223,7 +209,7 @@ namespace PieceWork // Ensure this namespace matches your own
         /// Gets the overall total pay among all workers
         /// </summary>
         /// <returns>the overall total pay among all workers</returns>
-        public decimal TotalPay
+        public static decimal TotalPay
         {
             get
             {
@@ -235,7 +221,7 @@ namespace PieceWork // Ensure this namespace matches your own
         /// Gets the overall number of workers
         /// </summary>
         /// <returns>the overall number of workers</returns>
-        public int TotalWorkers
+        public static int TotalWorkers
         {
             get
             {
@@ -247,7 +233,7 @@ namespace PieceWork // Ensure this namespace matches your own
         /// Gets the overall number of messages sent
         /// </summary>
         /// <returns>the overall number of messages sent</returns>
-        public int TotalMessages
+        public static int TotalMessages
         {
             get
             {
@@ -259,7 +245,7 @@ namespace PieceWork // Ensure this namespace matches your own
         /// Calculates and returns an average pay among all workers
         /// </summary>
         /// <returns>the average pay among all workers</returns>
-        public  decimal AveragePay
+        public static decimal AveragePay
         {
             get
             {
@@ -267,7 +253,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 // Write the logic that will return the average pay among all workers. Test this carefully!
                 if (TotalWorkers == 0 || TotalPay == 0)
                 {
-                    return ZERO;
+                    return zero;
                 }
                 else
                 {
@@ -276,7 +262,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 
             }
         }
-
+        
         #endregion
 
     }
