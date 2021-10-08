@@ -1,5 +1,5 @@
 ﻿// Title: IncInc Payroll (Piecework)
-// Last Modified: 25 September 2021
+// Last Modified: 8 October 2021
 // Written By: Arsalan Arif Radhu
 // Description: Made a WPF form IncInc which accepts the worker name and the number of messages sent by them, and then calculates their pay as well as the total pay, total number of worker and the average pay.
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using static System.String;
+
 
 
 namespace PieceWork
