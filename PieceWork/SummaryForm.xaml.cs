@@ -48,7 +48,7 @@ namespace PieceWork
 
         private void ResetSummaryClick(object sender, RoutedEventArgs e)
         {
-            new PieceworkWorker();
+            PieceworkWorker.ResetSummary();
             //Display the summary values
             textBoxTotalPay.Text = PieceworkWorker.TotalPay.ToString("C");
             textBoxAveragePay.Text = PieceworkWorker.AveragePay.ToString("C");

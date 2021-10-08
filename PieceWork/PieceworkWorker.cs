@@ -15,6 +15,9 @@
 
 
 using System;
+using System.IO;
+using Microsoft.Win32;
+
 
 
 namespace PieceWork // Ensure this namespace matches your own
@@ -28,6 +31,7 @@ namespace PieceWork // Ensure this namespace matches your own
         private string employeeName;
         private int employeeMessages;
         private decimal employeePay;
+        
 
         // Shared class variables
         private static int overallNumberOfEmployees;
@@ -40,6 +44,7 @@ namespace PieceWork // Ensure this namespace matches your own
         private const int secondThreshold = 2500;
         private const int thirdThreshold = 3750;
         private const int lastThreshold = 5000;
+        private const int maxMessages = 15000;
 
         private const decimal firstThresholdPay = 0.02M;
         private const decimal secondThresholdPay = 0.024M;
@@ -61,7 +66,7 @@ namespace PieceWork // Ensure this namespace matches your own
         /// </summary>
         public PieceworkWorker()
         {
-            ResetSummary();
+            
         }
 
 
@@ -113,9 +118,14 @@ namespace PieceWork // Ensure this namespace matches your own
             { 
                 employeePay = (decimal)(employeeMessages * fourthThresholdPay);
             }
-            else if(employeeMessages >= lastThreshold)
+            else if(employeeMessages >= lastThreshold && employeeMessages <= maxMessages)
             { 
                 employeePay = (decimal)(employeeMessages * lastThresholdPay);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(MessagesParameters,
+                    "Enter less than 15000!");
             }
 
             // Update all summary variables
@@ -172,7 +182,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 if (int.TryParse(value, out employeeMessages))
                 {
                     // If number entered is whole number, check if it is in a valid range
-                    if (employeeMessages < zero || employeeMessages.ToString() =="")
+                    if (employeeMessages <= zero || employeeMessages.ToString() =="")
                     {
                         // If not in valid range, report error
                         throw new ArgumentOutOfRangeException(MessagesParameters,
@@ -255,19 +265,37 @@ namespace PieceWork // Ensure this namespace matches your own
                 }
                 else
                 {
-                    return TotalPay / TotalWorkers;
+                    return Decimal.Round(TotalPay / TotalWorkers,2);
                 }
                 
             }
         }
 
-        public void ResetSummary()
+        /// <summary>
+        /// Rests the summary values to zero
+        /// </summary>
+        public static void ResetSummary()
         {
             overallMessages = 0;
             overallNumberOfEmployees = 0;
             overallPayroll = 0;
         }
+
+        /// <summary>
+        /// Save the successful entries into a log file.
+        /// </summary>
+        /// <param name="message"></param>
+        public static void logFunction(string message)
+        {
+            string logPath = "../../../log.txt";
+            StreamWriter log = new StreamWriter(logPath, true);
+            log.WriteLine($"{DateTime.Now}: {message}");
+            log.Close();
+        }
+
         #endregion
 
     }
+
+  
 }

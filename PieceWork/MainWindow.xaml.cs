@@ -45,6 +45,10 @@ namespace PieceWork
                 buttonCalculate.IsEnabled = false;
                 buttonSummary.Focus();
 
+                //Add to log file
+                string message = $"Worker {textBoxWorkerName.Text} has been entered with {textBoxMessagesSent.Text} messages and pay of {textBoxSinglePay.Text}";
+                PieceworkWorker.logFunction(message);
+
             }
             //If the worker is not created successfully, show error.
             catch (ArgumentNullException error)
