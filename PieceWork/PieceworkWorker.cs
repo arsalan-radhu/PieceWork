@@ -61,8 +61,9 @@ namespace PieceWork // Ensure this namespace matches your own
         /// </summary>
         public PieceworkWorker()
         {
-
+            ResetSummary();
         }
+
 
         /// <summary>
         /// PieceworkWorker constructor: accepts a worker's name and number of
@@ -78,6 +79,7 @@ namespace PieceWork // Ensure this namespace matches your own
             this.Messages = messagesValue;
             // Calculcate the worker's pay and update all summary values
             FindPay();
+            
         }
 
         
@@ -143,7 +145,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 // Add validation for the worker's name based on the requirement.
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(NameParameters, "Then entered name cannot be blank.");
+                    throw new ArgumentNullException(NameParameters, "Name cannot be blank.");
                 }
                 else
                 {
@@ -165,15 +167,12 @@ namespace PieceWork // Ensure this namespace matches your own
             }
             set
             {
-                // TO DO
-                // Add validation for the number of messages based on the
-                // requirements document
 
                 // Check if number of messages entered in whole number or not
                 if (int.TryParse(value, out employeeMessages))
                 {
                     // If number entered is whole number, check if it is in a valid range
-                    if (employeeMessages < zero)
+                    if (employeeMessages < zero || employeeMessages.ToString() =="")
                     {
                         // If not in valid range, report error
                         throw new ArgumentOutOfRangeException(MessagesParameters,
@@ -185,7 +184,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 {
                     //If not a numeric value, report an error
                     ArgumentException error =
-                        new ArgumentException("Message entered should be a WHOLE number!",MessagesParameters);
+                        new ArgumentException("Enter a WHOLE number!",MessagesParameters);
                     throw error;
                 }
 
@@ -249,8 +248,7 @@ namespace PieceWork // Ensure this namespace matches your own
         {
             get
             {
-                // TO DO
-                // Write the logic that will return the average pay among all workers. Test this carefully!
+               
                 if (TotalWorkers == 0 || TotalPay == 0)
                 {
                     return zero;
@@ -262,7 +260,13 @@ namespace PieceWork // Ensure this namespace matches your own
                 
             }
         }
-        
+
+        public void ResetSummary()
+        {
+            overallMessages = 0;
+            overallNumberOfEmployees = 0;
+            overallPayroll = 0;
+        }
         #endregion
 
     }

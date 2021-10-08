@@ -37,7 +37,7 @@ namespace PieceWork
                 PieceworkWorker pieceworkWorker = new PieceworkWorker(textBoxWorkerName.Text, textBoxMessagesSent.Text);
 
                 // Display worker's pay
-                textBoxSinglePay.Text = pieceworkWorker.Pay.ToString();
+                textBoxSinglePay.Text = pieceworkWorker.Pay.ToString("C");
 
                 // Disable input related fields
                 textBoxWorkerName.IsReadOnly = true;

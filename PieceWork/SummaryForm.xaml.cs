@@ -40,8 +40,18 @@ namespace PieceWork
         private void PopulateSummary()
         {
             //Display the summary values
-            textBoxTotalPay.Text = PieceworkWorker.TotalPay.ToString();
-            textBoxAveragePay.Text = PieceworkWorker.AveragePay.ToString();
+            textBoxTotalPay.Text = PieceworkWorker.TotalPay.ToString("C");
+            textBoxAveragePay.Text = PieceworkWorker.AveragePay.ToString("C");
+            textBoxTotalWorkers.Text = PieceworkWorker.TotalWorkers.ToString();
+            textBoxTotalMessages.Text = PieceworkWorker.TotalMessages.ToString();
+        }
+
+        private void ResetSummaryClick(object sender, RoutedEventArgs e)
+        {
+            new PieceworkWorker();
+            //Display the summary values
+            textBoxTotalPay.Text = PieceworkWorker.TotalPay.ToString("C");
+            textBoxAveragePay.Text = PieceworkWorker.AveragePay.ToString("C");
             textBoxTotalWorkers.Text = PieceworkWorker.TotalWorkers.ToString();
             textBoxTotalMessages.Text = PieceworkWorker.TotalMessages.ToString();
         }
