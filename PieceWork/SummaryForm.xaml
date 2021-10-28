@@ -44,8 +44,8 @@
                 <TextBox x:Name="textBoxAveragePay"  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the average pay between the total entered workers."/>
 
                 <!-- Row 4 Control -->
-                <Button Content="  Close Summary  " HorizontalAlignment="Left" Margin="51,0,0,0" Grid.Row="4" VerticalAlignment="Top" Click="ClickCloseForm" IsCancel="True" Height="25" Width="145" ToolTip="Closes the summary form."/>
-                <Button Content="  Reset Totals  " Margin="23,0,51,0" Grid.Row="4" Height="25" VerticalAlignment="Top" Grid.Column="1" Click="ResetSummaryClick"  Width="140" ToolTip="Resets all the summary values to zero." />
+                <Button Content="  Close _Summary  " HorizontalAlignment="Left" Margin="51,0,0,0" Grid.Row="4" VerticalAlignment="Top" Click="ClickCloseForm" IsCancel="True" Height="25" Width="145" ToolTip="Closes the summary form."/>
+                <Button Content="  _Reset Totals  " Margin="23,0,51,0" Grid.Row="4" Height="25" VerticalAlignment="Top" Grid.Column="1" Click="ResetSummaryClick"  Width="140" ToolTip="Resets all the summary values to zero." />
 
             </Grid>
 

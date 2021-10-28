@@ -22,6 +22,7 @@ namespace PieceWork
             InitializeComponent();
         }
         PieceworkWorker worker;
+
         /// <summary>
         /// Validates and calculate pay per messages (using a class defined elsewhere) by instantiating the PieceWorker and dis[plays the various values for output using class properties. 
         /// </summary>
@@ -43,7 +44,6 @@ namespace PieceWork
                 textBoxWorkerName.IsReadOnly = true;
                 textBoxMessagesSent.IsReadOnly = true;
                 buttonCalculate.IsEnabled = false;
-                buttonSummary.Focus();
 
                 //Add to log file
                 string message = $"Worker {textBoxWorkerName.Text} has been entered with {textBoxMessagesSent.Text} messages and pay of {textBoxSinglePay.Text}";
@@ -104,6 +104,17 @@ namespace PieceWork
             }
            
         }
+        /// <summary>
+        /// Fill the textboxes of the summary form
+        /// </summary>
+        private void PopulateSummary()
+        {
+            //Display the summary values
+            textBoxTotalPay.Text = PieceworkWorker.TotalPay.ToString("C");
+            textBoxAveragePay.Text = PieceworkWorker.AveragePay.ToString("C");
+            textBoxTotalWorkers.Text = PieceworkWorker.TotalWorkers.ToString();
+            textBoxTotalMessages.Text = PieceworkWorker.TotalMessages.ToString();
+        }
 
         /// <summary>
         /// Reset the form to its default state with all the text input and output fields cleared.
@@ -124,14 +135,23 @@ namespace PieceWork
             textBoxMessagesSent.IsReadOnly = false;
             buttonCalculate.IsEnabled = true;
 
-            //Set Focus
-            buttonSummary.Focus();
 
             //Clear all errors
             ClearAllErrors();
 
         }
-        
+        /// <summary>
+        /// Resets the summary form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetSummaryClick(object sender, RoutedEventArgs e)
+        {
+            PieceworkWorker.ResetSummary();
+            //Display the summary values
+            PopulateSummary();
+        }
+
         /// <summary>
         ///Exits the application 
         /// </summary>
@@ -142,15 +162,6 @@ namespace PieceWork
             Close();
         }
 
-        /// <summary>
-        /// Displays the summary form.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SummaryClick(object sender, RoutedEventArgs e)
-        {
-            new SummaryForm().ShowDialog();
-        }
 
         /// <summary>
         /// Highlight a textbox by putting colors on it and selecting it.

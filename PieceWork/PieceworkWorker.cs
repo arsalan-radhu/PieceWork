@@ -125,7 +125,7 @@ namespace PieceWork // Ensure this namespace matches your own
             else
             {
                 throw new ArgumentOutOfRangeException(MessagesParameters,
-                    "Enter less than 15000!");
+                    "Enter less than" + maxMessages + "!");
             }
 
             // Update all summary variables

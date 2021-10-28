@@ -1,0 +1,4 @@
+2021-10-16 5:56:56 PM: Worker Chamar has been entered with 5433 messages and pay of $217.32
+2021-10-28 8:45:05 AM: Worker Arsalan has been entered with 5332 messages and pay of $213.28
+2021-10-28 9:22:22 AM: Worker Arsalan has been entered with 3455 messages and pay of $96.74
+2021-10-28 9:25:50 AM: Worker Arsalan Arif RAdhu has been entered with 2344 messages and pay of $56.26

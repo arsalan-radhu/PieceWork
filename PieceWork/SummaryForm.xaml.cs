@@ -46,14 +46,16 @@ namespace PieceWork
             textBoxTotalMessages.Text = PieceworkWorker.TotalMessages.ToString();
         }
 
+        /// <summary>
+        /// Resets the summary form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ResetSummaryClick(object sender, RoutedEventArgs e)
         {
             PieceworkWorker.ResetSummary();
             //Display the summary values
-            textBoxTotalPay.Text = PieceworkWorker.TotalPay.ToString("C");
-            textBoxAveragePay.Text = PieceworkWorker.AveragePay.ToString("C");
-            textBoxTotalWorkers.Text = PieceworkWorker.TotalWorkers.ToString();
-            textBoxTotalMessages.Text = PieceworkWorker.TotalMessages.ToString();
+            PopulateSummary();
         }
     }
 }
