@@ -18,7 +18,7 @@ using System.Configuration;
 using System.IO;
 using System.Runtime.CompilerServices;
 
-namespace PieceworkPayrollSolution
+namespace PieceWork
 {
     class DataAccess
     {

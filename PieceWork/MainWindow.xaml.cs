@@ -195,5 +195,28 @@ namespace PieceWork
             labelWorkerNameError.Content = String.Empty;
             labelMessagesSentError.Content = String.Empty;
         }
+
+        /// <summary>
+        /// When the tab controls selection is changed, respond to it by populating the target tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tabControlInterface.SelectedItem == tabPayrollEntry)
+            {
+                buttonClear.Focus();
+            }
+            else if (tabControlInterface.SelectedItem == tabSummary)
+            {
+                PopulateSummary();
+            }
+            else if (tabControlInterface.SelectedItem == tabEmployeeList)
+            {
+                //This directly accesses the DttaAccess layer; it should probably through the class
+                dataGridEmployees.ItemsSource = DataAccess.GetEmployeeList()
+                    .DefaultView;
+            }
+        }
     }
 }
