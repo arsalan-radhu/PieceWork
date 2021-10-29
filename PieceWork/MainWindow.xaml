@@ -87,7 +87,6 @@
                                 <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
-                                <RowDefinition />
                             </Grid.RowDefinitions>
 
                             <!-- Row 0 Control -->
@@ -105,11 +104,6 @@
                             <!-- Row 3 Control -->
                             <Label Content="Average Pay:   " HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="3"/>
                             <TextBox x:Name="textBoxAveragePay"  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Text=""  VerticalAlignment="Center" Width="200" IsReadOnly="True" ToolTip="Displays the average pay between the total entered workers."/>
-
-                            <!-- Row 4 Control -->
-
-                            <Button Content="  _Reset Totals  " Margin="0,37,0,0" Grid.Row="4" Height="29" VerticalAlignment="Top" Click="ResetSummaryClick" ToolTip="Resets all the summary values to zero." Grid.ColumnSpan="2" />
-
                         </Grid>
 
                     </GroupBox>

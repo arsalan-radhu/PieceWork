@@ -3,7 +3,6 @@
 // Written By: Arsalan Arif Radhu
 // Description: Made a WPF form IncInc which accepts the worker name and the number of messages sent by them, and then calculates their pay as well as the total pay, total number of worker and the average pay.
 using System;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -140,17 +139,6 @@ namespace PieceWork
             ClearAllErrors();
 
         }
-        /// <summary>
-        /// Resets the summary form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ResetSummaryClick(object sender, RoutedEventArgs e)
-        {
-            PieceworkWorker.ResetSummary();
-            //Display the summary values
-            PopulateSummary();
-        }
 
         /// <summary>
         ///Exits the application 
@@ -203,19 +191,21 @@ namespace PieceWork
         /// <param name="e"></param>
         private void TabChanged(object sender, SelectionChangedEventArgs e)
         {
+            //When we access the entry form,set focus
             if (tabControlInterface.SelectedItem == tabPayrollEntry)
             {
                 buttonClear.Focus();
             }
+            // When we access the summary form, populate summary values from the database
             else if (tabControlInterface.SelectedItem == tabSummary)
             {
                 PopulateSummary();
             }
+            // When we access the Employee list form, populate it from the database. 
             else if (tabControlInterface.SelectedItem == tabEmployeeList)
             {
-                //This directly accesses the DttaAccess layer; it should probably through the class
-                dataGridEmployees.ItemsSource = DataAccess.GetEmployeeList()
-                    .DefaultView;
+                //This directly accesses the DataAccess layer; it should probably through the class
+                dataGridEmployees.ItemsSource = PieceworkWorker.AllWorkers.DefaultView;
             }
         }
     }

@@ -15,6 +15,7 @@
 
 
 using System;
+using System.Data;
 using System.IO;
 using Microsoft.Win32;
 
@@ -31,12 +32,6 @@ namespace PieceWork // Ensure this namespace matches your own
         private string employeeName;
         private int employeeMessages;
         private decimal employeePay;
-        
-
-        // Shared class variables
-        private static int overallNumberOfEmployees;
-        private static int overallMessages;
-        private static decimal overallPayroll;
 
         //CONSTANTS
         private const int zero = 0;
@@ -80,11 +75,16 @@ namespace PieceWork // Ensure this namespace matches your own
         {
             // Validate and set the worker's name
             this.Name = nameValue;
+
             // Validate Validate and set the worker's number of messages
             this.Messages = messagesValue;
+
             // Calculcate the worker's pay and update all summary values
             FindPay();
-            
+
+            // Once the worker is created and valid, add it to the database.
+            DataAccess.InsertNewRecord(this);
+
         }
 
         
@@ -122,18 +122,6 @@ namespace PieceWork // Ensure this namespace matches your own
             { 
                 employeePay = (decimal)(employeeMessages * lastThresholdPay);
             }
-            else
-            {
-                throw new ArgumentOutOfRangeException(MessagesParameters,
-                    "Enter less than" + maxMessages + "!");
-            }
-
-            // Update all summary variables
-            overallNumberOfEmployees++;
-            overallMessages += employeeMessages;
-            overallPayroll += employeePay;
-            
-       
         }
 
         #endregion
@@ -189,6 +177,11 @@ namespace PieceWork // Ensure this namespace matches your own
                             "Messages should be greater than ZERO!");
 
                     }
+                    else if(employeeMessages > maxMessages )
+                    {
+                        throw new ArgumentOutOfRangeException(MessagesParameters,
+                            "Enter less than" + maxMessages + "!");
+                    }
                 }
                 else
                 {
@@ -222,7 +215,7 @@ namespace PieceWork // Ensure this namespace matches your own
         {
             get
             {
-                return overallPayroll;
+                return Convert.ToDecimal(DataAccess.GetTotalPay());
             }
         }
 
@@ -234,7 +227,7 @@ namespace PieceWork // Ensure this namespace matches your own
         {
             get
             {
-                return overallNumberOfEmployees;
+                return Convert.ToInt32(DataAccess.GetTotalEmployees());
             }
         }
 
@@ -246,7 +239,7 @@ namespace PieceWork // Ensure this namespace matches your own
         {
             get
             {
-                return overallMessages;
+                return Convert.ToInt32(DataAccess.GetTotalMessages());
             }
         }
 
@@ -272,16 +265,6 @@ namespace PieceWork // Ensure this namespace matches your own
         }
 
         /// <summary>
-        /// Rests the summary values to zero
-        /// </summary>
-        public static void ResetSummary()
-        {
-            overallMessages = 0;
-            overallNumberOfEmployees = 0;
-            overallPayroll = 0;
-        }
-
-        /// <summary>
         /// Save the successful entries into a log file.
         /// </summary>
         /// <param name="message"></param>
@@ -291,6 +274,14 @@ namespace PieceWork // Ensure this namespace matches your own
             StreamWriter log = new StreamWriter(logPath, true);
             log.WriteLine($"{DateTime.Now}: {message}");
             log.Close();
+        }
+
+        internal static DataTable AllWorkers
+        {
+            get
+            {
+                return DataAccess.GetEmployeeList();
+            }
         }
 
         #endregion

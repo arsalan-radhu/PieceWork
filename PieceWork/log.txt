@@ -3,3 +3,5 @@
 2021-10-28 9:22:22 AM: Worker Arsalan has been entered with 3455 messages and pay of $96.74
 2021-10-28 9:25:50 AM: Worker Arsalan Arif RAdhu has been entered with 2344 messages and pay of $56.26
 2021-10-29 8:41:02 AM: Worker Arsalan has been entered with 4563 messages and pay of $155.14
+2021-10-29 8:47:29 AM: Worker Hyle has been entered with 6433 messages and pay of $257.32
+2021-10-29 8:53:21 AM: Worker Ammar has been entered with 14999 messages and pay of $599.96
