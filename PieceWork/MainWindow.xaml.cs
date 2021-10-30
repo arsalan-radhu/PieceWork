@@ -1,5 +1,5 @@
 ﻿// Title: IncInc Payroll (Piecework)
-// Last Modified: 8 October 2021
+// Last Modified: 29 October 2021
 // Written By: Arsalan Arif Radhu
 // Description: Made a WPF form IncInc which accepts the worker name and the number of messages sent by them, and then calculates their pay as well as the total pay, total number of worker and the average pay.
 using System;
@@ -34,7 +34,7 @@ namespace PieceWork
             try
             {
                 //Attempt to make a new worker
-                PieceworkWorker pieceworkWorker = new PieceworkWorker(textBoxWorkerName.Text, textBoxMessagesSent.Text);
+                PieceworkWorker pieceworkWorker = new PieceworkWorker(textBoxWorkerName.Text, textBoxWorkerLastName.Text,textBoxMessagesSent.Text);
 
                 // Display worker's pay
                 textBoxSinglePay.Text = pieceworkWorker.Pay.ToString("C");
@@ -134,6 +134,7 @@ namespace PieceWork
         {
             // Clear all input fields
             textBoxWorkerName.Clear();
+            textBoxWorkerLastName.Clear();
             textBoxMessagesSent.Clear();
             
             //Clear all output fields
@@ -141,6 +142,7 @@ namespace PieceWork
 
             //Reenable any controls that may be disabled
             textBoxWorkerName.IsReadOnly = false;
+            textBoxWorkerLastName.IsReadOnly = false;
             textBoxMessagesSent.IsReadOnly = false;
             buttonCalculate.IsEnabled = true;
 
@@ -189,8 +191,10 @@ namespace PieceWork
         private void ClearAllErrors()
         {
             ClearError(textBoxWorkerName);
+            ClearError(textBoxWorkerLastName);
             ClearError(textBoxMessagesSent);
             labelWorkerNameError.Content = String.Empty;
+            labelWorkerLastNameError.Content = String.Empty;
             labelMessagesSentError.Content = String.Empty;
         }
 

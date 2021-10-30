@@ -1,6 +1,6 @@
 ﻿// PieceworkWorker.cs
 //         Title: IncInc Payroll (Piecework)
-// Last Modified: 8 October 2021
+// Last Modified:29 October 2021
 //    Written By: Arsalan Arif Radhu
 // Adapted from PieceworkWorker by Kyle Chapman, September 2019
 // 
@@ -72,11 +72,15 @@ namespace PieceWork // Ensure this namespace matches your own
         /// messages, sets and calculates values as appropriate.
         /// </summary>
         /// <param name="nameValue">the worker's name</param>
+        /// <param name="lastNameValue">the worker's name</param>
         /// <param name="messageValue">a worker's number of messages sent</param>
-        public PieceworkWorker(string nameValue, string messagesValue)
+        public PieceworkWorker(string nameValue,string lastNameValue, string messagesValue)
         {
             // Validate and set the worker's name
             this.Name = nameValue;
+            
+            // Validate and set the worker's name
+            this.LastName = lastNameValue;
 
             // Validate Validate and set the worker's number of messages
             this.Messages = messagesValue;

@@ -1,7 +1,7 @@
 ﻿<!-- Name: Arsalan Arif Radhu -->
 <!-- Student ID: 100813965 -->
-<!-- Date: 25 September 2021-->
-<!-- Updated: 8 October 2021-->
+<!-- Date: 28 September 2021-->
+<!-- Updated:29 October 2021-->
 <Window x:Name="icon" x:Class="PieceWork.MainWindow"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -16,7 +16,7 @@
     <!--Make sure you add an icon to your Window, or write a comment if you can't.-->
 
     <Grid>
-        <!--Define rows for the outermost Grid, containing the tab control.-->
+        
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="35" />
