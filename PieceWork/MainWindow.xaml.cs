@@ -41,6 +41,7 @@ namespace PieceWork
 
                 // Disable input related fields
                 textBoxWorkerName.IsReadOnly = true;
+                textBoxWorkerLastName.IsReadOnly = true;
                 textBoxMessagesSent.IsReadOnly = true;
                 buttonCalculate.IsEnabled = false;
 

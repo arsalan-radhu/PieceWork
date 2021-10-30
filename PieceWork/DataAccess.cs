@@ -109,7 +109,7 @@ namespace PieceWork
             
             // TO DO The next two lines assume workers only have 1 name. Read your requirements carefully!
             command.Parameters.AddWithValue("@firstName", insertWorker.Name);
-            command.Parameters.AddWithValue("@lastName", insertWorker.Name);
+            command.Parameters.AddWithValue("@lastName", insertWorker.LastName);
             command.Parameters.AddWithValue("@messages", insertWorker.Messages);
             command.Parameters.AddWithValue("@pay", insertWorker.Pay);
             // TO DO This line assumes the PieceworkWorker class has no Date property. Careful!
