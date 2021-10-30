@@ -64,6 +64,11 @@ namespace PieceWork
                     labelMessagesSentError.Content = error.Message;
                     HighlightError(textBoxMessagesSent);
                 }
+                else if (error.ParamName == "lastname")
+                {
+                    labelWorkerLastNameError.Content = error.Message;
+                    HighlightError(textBoxWorkerLastName);
+                }
 
             }
             catch (ArgumentOutOfRangeException error)
@@ -89,6 +94,11 @@ namespace PieceWork
                 {
                     labelMessagesSentError.Content = error.Message;
                     HighlightError(textBoxMessagesSent);
+                }
+                else if (error.ParamName == "lastname")
+                {
+                    labelWorkerLastNameError.Content = error.Message;
+                    HighlightError(textBoxWorkerLastName);
                 }
 
             }

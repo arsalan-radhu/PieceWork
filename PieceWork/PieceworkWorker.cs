@@ -30,6 +30,7 @@ namespace PieceWork // Ensure this namespace matches your own
 
         // Instance variables
         private string employeeName;
+        private string employeeLastName;
         private int employeeMessages;
         private decimal employeePay;
 
@@ -49,6 +50,7 @@ namespace PieceWork // Ensure this namespace matches your own
 
         // Constants for exception parameter name
         public const string NameParameters = "name";
+        public const string LastNameParameters = "lastname";
         public const string MessagesParameters = "messages";
         
 
@@ -143,7 +145,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 // Add validation for the worker's name based on the requirement.
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(NameParameters, "Name cannot be blank.");
+                    throw new ArgumentNullException(LastNameParameters, "Last name cannot be blank.");
                 }
                 else
                 {
@@ -153,6 +155,29 @@ namespace PieceWork // Ensure this namespace matches your own
             }
         }
 
+        /// <summary>
+        /// Gets and sets a worker's last name
+        /// </summary>
+        public string LastName
+        {
+            get
+            {
+                return employeeLastName.ToString();
+            }
+            set
+            {
+                // Add validation for the worker's last name based on the requirement.
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(NameParameters, "Name cannot be blank.");
+                }
+                else
+                {
+                    employeeLastName = value;
+                }
+
+            }
+        }
         /// <summary>
         /// Gets and sets the number of messages sent by a worker
         /// </summary>
