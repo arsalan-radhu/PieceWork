@@ -10,8 +10,6 @@
 // values. Name and messages are received as strings.
 // This is being used as part of a piecework payroll application.
 
-// This is currently incomplete; note the four comment blocks
-// below that begin with "TO DO"
 
 
 using System;
@@ -149,7 +147,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 // Add validation for the worker's name based on the requirement.
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(LastNameParameters, "Last name cannot be blank.");
+                    throw new ArgumentNullException(NameParameters, "Name cannot be blank.");
                 }
                 else
                 {
@@ -173,7 +171,7 @@ namespace PieceWork // Ensure this namespace matches your own
                 // Add validation for the worker's last name based on the requirement.
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(NameParameters, "Name cannot be blank.");
+                    throw new ArgumentNullException(LastNameParameters, "Last name cannot be blank.");
                 }
                 else
                 {
@@ -305,6 +303,9 @@ namespace PieceWork // Ensure this namespace matches your own
             log.Close();
         }
 
+        /// <summary>
+        /// Gets all the employees from the database
+        /// </summary>
         internal static DataTable AllWorkers
         {
             get

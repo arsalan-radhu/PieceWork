@@ -1,7 +1,7 @@
 ﻿// DataAccess.cs
 //         Title: DataAccess - Data Access Layer for Piecework Payroll
-// Last Modified: 
-//    Written By: 
+// Last Modified: 29 October 2021
+//    Written By: Arsalan Arif Radhu
 // Based on code samples provided by Kyle Chapman
 // 
 // This is a module with a set of classes allowing for interaction between

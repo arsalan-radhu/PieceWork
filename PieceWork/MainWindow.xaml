@@ -12,11 +12,11 @@
              Title="Incorporeal Incorporated Payroll"
         WindowStartupLocation="CenterScreen"
         MinHeight="480" Height="500"
-        MinWidth="480"  Width="600">
-    <!--Make sure you add an icon to your Window, or write a comment if you can't.-->
+        MinWidth="480"  Width="600" Icon="/IncIncLogo.png">
+    
 
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="35" />
@@ -53,6 +53,7 @@
                     <Label Content="Worker _Last Name: " HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" Target="{Binding ElementName= textBoxWorkerName}" Height="26" Margin="11,0,0,0" Width="112" Grid.ColumnSpan="2"/>
                     <TextBox x:Name="textBoxWorkerLastName" Grid.Column="2"  Text="" VerticalAlignment="Center" ToolTip="Enter the worker's name here." Height="18" Grid.Row="1" Margin="0,0,15,0"/>
                     <Label Content="" x:Name="labelWorkerLastNameError" Grid.Column="3" VerticalAlignment="Center" Foreground="Red" Height="26" Grid.Row="1" />
+
                     <!-- Row 2 Control -->
                     <Label Content="_Messages Sent: " Grid.Row="2"  VerticalAlignment="Center" Target="{Binding ElementName=textBoxMessagesSent}" Height="26" Margin="16,0,16,0" Grid.ColumnSpan="2"/>
                     <TextBox x:Name="textBoxMessagesSent" Grid.Column="2"  Grid.Row="2" Text="" VerticalAlignment="Center" ToolTip="Enter the number of messages sent by the worker here." Height="18" Margin="0,0,15,0"/>
@@ -70,8 +71,8 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                     </Grid>
-                    <Button x:Name="buttonClear" Content="  C_lear Fields  " HorizontalAlignment="Left"  VerticalAlignment="Center" Click="ClearClick" ToolTip="Click to clear all the input data."   Width="287" Height="52" Grid.ColumnSpan="3" Grid.Row="4"/>
-                    <Button x:Name="buttonCalculate" Content=" _Calculate Pay " HorizontalAlignment="Left" VerticalAlignment="Center" Click="CalculateClick" ToolTip="Click to calculate the worker's pay." Width="282" Height="52" Grid.Column="3" IsDefault="True" RenderTransformOrigin="-0.225,0.424" Grid.Row="4"/>
+                    <Button x:Name="buttonClear" Content="  C_lear Fields  " HorizontalAlignment="Center"  VerticalAlignment="Center" Click="ClearClick" ToolTip="Click to clear all the input data."   Width="277" Height="52" Grid.ColumnSpan="3" Grid.Row="4"/>
+                    <Button x:Name="buttonCalculate" Content=" _Calculate Pay " HorizontalAlignment="Center" VerticalAlignment="Center" Click="CalculateClick" ToolTip="Click to calculate the worker's pay." Width="277" Height="52" Grid.Column="3" IsDefault="True" RenderTransformOrigin="-0.225,0.424" Grid.Row="4"/>
 
                 </Grid>
 
